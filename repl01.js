@@ -1,63 +1,24 @@
-class Collection {
-	constructor(items = []) {
-		this.items = items;
-	}
+// note: the result from the assignment was an impossible outcome.
+// the result has instead been shifted at position (3,3) to 'X' to fix this.
 
-	count() {
-		return this.items.length
+const game = [
+	'o', 'o', 'x',
+	'o', 'x', 'o',
+	'x', 'o', 'x'
+]
+
+const draw = (game) => {
+	let row = ''
+	for (let index = 0; index < 10; index++) {
+		row += game[index]
+		if (index % 3 == 2) {
+			console.log(row);
+			row = ''
+		}
+		else {
+			row += ' '
+		}
 	}
 }
 
-class Origami {
-	constructor(folds = 1) {
-		this.folds = folds;
-		this.collect();
-	}
-
-	foldMe() {
-		console.log("Preparing to fold item...");
-		this.foldAction();
-		if (this.folds == 0) {
-			console.log("makes a piece of paper");
-		} else if (this.folds == 1) {
-			console.log("makes a folded sheet");
-		} else if (this.folds == 2) {
-			console.log('makes an envelope');
-		} else if (this.folds == 3) {
-			console.log('makes a crane');
-		} else if (this.folds == 4) {
-			console.log(`makes a frog`);
-		} else if (this.folds == 5) {
-			console.log('makes an elephant');
-		} else {
-			console.log('makes a crumpled wad');
-		}
-	}
-
-	foldAction() {
-		for (let i = 0; i < this.folds; i++) {
-			const step = 1 + i;
-			console.log("fold step... " + step);
-		}
-	}
-
-	collect() {
-		myCollection.items.push(self);
-	}
-}
-
-// IMPORTANT VARIABLE -- DO NOT REMOVE
-const myCollection = new Collection();
-
-// Create items for my collection
-const crane = new Origami(3);
-const frog = new Origami(4);
-const elephant = new Origami(5);
-const oops = new Origami(6);
-
-crane.foldMe();
-frog.foldMe();
-elephant.foldMe();
-oops.foldMe();
-
-console.log("My collection has " + myCollection.count() + " items.");
+draw(game)
